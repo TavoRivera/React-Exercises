@@ -1,25 +1,17 @@
-// const saludar =function( nombre ){
-//     return `hola ${nombre}`;
-// };
+//importar programas en el directorio
+//import { heroes } from './data/heroes'
 
-const saludar2 = (nombre) => {
-    return `hola ${nombre}`;
+import {heroes} from './data/heroes'
+
+// uso de find de js devuelve 1 elemento, el mas cercano
+const getHeroeById = (id) => {
+    return heroes.find(hero => hero.id === id);
 };
 
-console.log(saludar2('paniar'))
+console.log(getHeroeById(1));
+// uso de filter, devuelve mas de 1 elemento
+const getHeroesByOwner = (owner) => {
+    return heroes.filter(hero => hero.owner === owner);
+}
 
-// const getUser = () => {
-//     return {
-//         uid : '111',
-//         username : 'user1',
-//     };
-// };
-// lo de arriba es lo mismo que hacer esto
-
-const getUser = () => ({uid: 111, username: 'pepe'})
-// a esto se le denomina funcion implicita
-console.log(getUser())
-
-
-const usuarioActivo = (nombre) => ({uid : 'ABC567', username: nombre});
-console.log(usuarioActivo('Octavio'));
+console.log(getHeroesByOwner('Marvel'));
